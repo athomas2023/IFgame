@@ -48,7 +48,7 @@ public class DecisionMangar : MonoBehaviour
 
    public void Bad()
    {
-        choiceVar += 1f;
+        choiceVar -= 1f;
         choiceDisplay = choiceVar.ToString();
         ChoiceMeter.text = choiceDisplay;
 
