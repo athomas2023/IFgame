@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 991392304}
   - component: {fileID: 991392303}
   m_Layer: 5
-  m_Name: Good
+  m_Name: Bad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,7 +876,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 600224343}
         m_TargetAssemblyTypeName: DecisionMangar, Assembly-CSharp
-        m_MethodName: Good
+        m_MethodName: Bad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 1525307746}
   - component: {fileID: 1525307745}
   m_Layer: 5
-  m_Name: 'Test '
+  m_Name: Good
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1145,7 +1145,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 600224343}
         m_TargetAssemblyTypeName: DecisionMangar, Assembly-CSharp
-        m_MethodName: Bad
+        m_MethodName: Good
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
