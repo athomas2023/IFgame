@@ -1,0 +1,17 @@
+TextManager Prefab
+
+Decision Managar (script)
+
+This Set the 3 buttons Output
+
+- Great
+- Good
+- Bad
+
+Point system is connected to each option. 
+
+Dialog Manager
+
+Create Number of Text Entries 
+
+Add Text dialog per Entire

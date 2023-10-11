@@ -10,10 +10,15 @@ public class DialogManager : MonoBehaviour
     public int maxEntries = 5; // Change this to your desired maximum number of entries
 
     private int currentEntryIndex = 0;
-    #endregion 
+
+    [Header("Choices")]
+    public GameObject ButtonManager;
+
+    [Header("Next Section")]
+    public GameObject TextManager;
 
 
-    #region  
+    private bool InDialog ;
 
     
 
@@ -24,6 +29,13 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         DisplayCurrentEntry();
+        ButtonManager.SetActive(false);
+        InDialog = true;
+    }
+
+    void Awake()
+    {
+        InDialog = true;
     }
 
     void Update()
@@ -31,6 +43,8 @@ public class DialogManager : MonoBehaviour
         // Check for spacebar input to advance to the next entry
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (InDialog == true) // Dialogue Entries
+            {
             currentEntryIndex++;
 
             // Check if there are more entries to display
@@ -41,6 +55,15 @@ public class DialogManager : MonoBehaviour
             else
             {
                 Debug.Log("No more entries");
+                ButtonManager.SetActive(true);
+                InDialog = false;
+
+            }
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                TextManager.SetActive(true);
             }
         }
     }

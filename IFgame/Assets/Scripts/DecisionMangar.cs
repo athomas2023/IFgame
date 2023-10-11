@@ -7,7 +7,7 @@ using TMPro;
 
 public class DecisionMangar : MonoBehaviour
 {
-
+     
     public TextMeshProUGUI ChoiceMeter;
 
     private float choiceVar = 0f;
@@ -15,10 +15,16 @@ public class DecisionMangar : MonoBehaviour
 
     public TextMeshProUGUI OverWriteText;
 
-
+      [Header("Choices")]
     public string GreatEnding = "";
+    public float GreatPoints = 1f;
     public string GoodEnding = "";
+    public float GoodPoints = .5f;
     public string BadEnding = "";
+    public float Badpoints = -1f;
+
+    
+   
     
     private void Start()
     {
@@ -26,9 +32,9 @@ public class DecisionMangar : MonoBehaviour
         ChoiceMeter.text = choiceDisplay;
 
     }
-   public void Great(string GreatEnding)
+   public void Great()
    {
-        choiceVar += 1f;
+        choiceVar += GreatPoints;
         choiceDisplay = choiceVar.ToString();
         ChoiceMeter.text = choiceDisplay;
 
@@ -39,7 +45,7 @@ public class DecisionMangar : MonoBehaviour
    public void Good()
    {
 
-        choiceVar += 0.5f;
+        choiceVar += GoodPoints;
         choiceDisplay = choiceVar.ToString();
         ChoiceMeter.text = choiceDisplay;
 
@@ -48,7 +54,7 @@ public class DecisionMangar : MonoBehaviour
 
    public void Bad()
    {
-        choiceVar -= 1f;
+        choiceVar -= Badpoints;
         choiceDisplay = choiceVar.ToString();
         ChoiceMeter.text = choiceDisplay;
 
