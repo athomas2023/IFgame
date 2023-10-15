@@ -269,18 +269,6 @@ MonoBehaviour:
           m_StringArgument: Im glad to hear
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1461733835276894876}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 4755724486460555893}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -463,18 +451,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2981855735924409464}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &4524442069579335132
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +485,7 @@ RectTransform:
   - {fileID: 4650439578635229796}
   - {fileID: 92351142583268938}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -530,12 +506,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ChoiceMeter: {fileID: 8264082105788620357}
   OverWriteText: {fileID: 7470214850494708954}
-  GreatEnding: 
+  GreatEnding: That amazing
   GreatPoints: 1
   GoodEnding: That good to know
   GoodPoints: 0.5
   BadEnding: Im sorry your day bad
-  Badpoints: -1
+  Badpoints: 1
+  Buttonrow: {fileID: 6536903240198226920}
 --- !u!114 &2029290952259053547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +531,8 @@ MonoBehaviour:
   - how
   - are
   - you
-  maxEntries: 4
+  - how are you
+  maxEntries: 5
   ButtonManager: {fileID: 6536903240198226920}
   TextManager: {fileID: 0}
 --- !u!1 &4625527583638185441
@@ -838,18 +816,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4755724486460555893}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2981855735924409464}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1007,7 +973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4650439578635229796}
   m_Layer: 5
-  m_Name: ----Buttons----
+  m_Name: -----Button---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

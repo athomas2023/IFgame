@@ -1,17 +1,28 @@
 TextManager Prefab
 
-Decision Managar (script)
+This prefab is designed to manage the flow of text-based dialog in your game. It integrates several key components to control the game's narrative. To use this prefab effectively, it's essential to understand the following public fields and components that require manual configuration in the Inspector:
 
-This Set the 3 buttons Output
+Decision Manager (Script)
 
-- Great
-- Good
-- Bad
+This script controls the three main choices presented to the player, each affecting the game's outcome:
 
-Point system is connected to each option. 
+Great: By selecting this choice, you increase the point value, which can lead to a highly favorable outcome.
+Good: Choosing this option grants a moderate point value, influencing a positive outcome.
+Bad: When players opt for this choice, points are deducted, potentially leading to a less favorable outcome.
+Additionally, the "Health Points" section in the Decision Manager script is crucial for managing the player's health based on their choices:
 
-Dialog Manager
+IncreaseHealth (Integer): Configure this value to determine the amount by which the player's health increases when selecting the "Great" option. By default, it's set to 1, but you can adjust it as needed.
+DecreaseHealth (Integer): Set this value to determine the amount by which the player's health decreases when choosing the "Bad" option. The default value is -1, but you can modify it to suit your game's balance.
+NaturalHealth (Integer): This value represents the health change when the "Good" option is selected. By default, it's set to 0, but you can customize it according to your game's design.
 
-Create Number of Text Entries 
+The Dialog Manager script allows you to create and manage text entries to convey your game's narrative. You'll need to configure the following public fields in the Inspector:
 
-Add Text dialog per Entire
+Target Overwrite Text (TextMeshProUGUI): Assign a TextMeshProUGUI object here to display the dialog text.
+Text Entries (String Array): Define the text dialog for each entry in this array.
+Max Entries (Integer): Set the maximum number of entries you want to display, and adjust this number based on your game's requirements.
+PlayerHealth Script
+
+The PlayerHealth script is responsible for tracking and managing the player's health throughout the game. Here are the components that require manual configuration:
+
+Display Health Object (GameObject): Assign a GameObject with TextMeshPro to display the player's health as text.
+Health Points (Integer): You can configure the initial health points here, with a default value of 100.

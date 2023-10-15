@@ -17,13 +17,7 @@ public class DialogManager : MonoBehaviour
     [Header("Next Section")]
     public GameObject TextManager;
 
-
-    private bool InDialog ;
-
-    
-
-
-
+    private bool InDialog;
     #endregion
 
     void Start()
@@ -31,6 +25,11 @@ public class DialogManager : MonoBehaviour
         DisplayCurrentEntry();
         ButtonManager.SetActive(false);
         InDialog = true;
+
+        if (TextManager == null)
+        {
+            Debug.Log("Please set the 'TextManager' GameObject field in the inspector.");
+        }
     }
 
     void Awake()
@@ -45,25 +44,32 @@ public class DialogManager : MonoBehaviour
         {
             if (InDialog == true) // Dialogue Entries
             {
-            currentEntryIndex++;
+                currentEntryIndex++;
 
-            // Check if there are more entries to display
-            if (currentEntryIndex < textEntries.Length)
-            {
-                DisplayCurrentEntry();
+                // Check if there are more entries to display
+                if (currentEntryIndex < textEntries.Length)
+                {
+                    DisplayCurrentEntry();
+                }
+                else
+                {
+                    Debug.Log("No more entries");
+                    ButtonManager.SetActive(true);
+                    InDialog = false;
+
+                }
             }
             else
             {
-                Debug.Log("No more entries");
-                ButtonManager.SetActive(true);
-                InDialog = false;
-
-            }
-            }
-            else
-            {
-                gameObject.SetActive(false);
-                TextManager.SetActive(true);
+                if (TextManager != null)
+                {
+                    gameObject.SetActive(false);
+                    TextManager.SetActive(true);
+                }
+                else
+                {
+                    Debug.Log("Please set the 'TextManager' GameObject field in the inspector.");
+                }
             }
         }
     }
@@ -80,4 +86,5 @@ public class DialogManager : MonoBehaviour
         }
     }
 }
+
 
