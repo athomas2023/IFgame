@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     private int healthPoints = 100; // Initial health points
     public GameObject displayHealthObject; // Reference to the TextMeshPro object
-
+    public string GameOverScene ;
+    private DecisionMangar decisionManager;
     private int HealthPoints
     {
         get { return healthPoints; }
@@ -25,6 +27,9 @@ public class PlayerHealth : MonoBehaviour
 
         // Initialize the display text with the initial health value
         UpdateHealthDisplay();
+
+         // Find the DecisionManager script globally
+        decisionManager = FindObjectOfType<DecisionMangar>();
     }
 
     private void Update()
@@ -33,10 +38,24 @@ public class PlayerHealth : MonoBehaviour
         PlayerPrefs.SetInt("PlayerHealth", healthPoints);
         PlayerPrefs.Save();
 
-        // Check for the Escape key press to reset PlayerPrefs
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (healthPoints == 0)
         {
-            ResetPlayerPrefs();
+            // Call the reset function in DecisionManager
+            if (decisionManager != null)
+            {
+                decisionManager.ResetPlayerPrefs();
+            }
+
+            // Check if the GameOverScene is set
+            if (!string.IsNullOrEmpty(GameOverScene))
+            {
+                // Load the GameOverScene
+                SceneManager.LoadScene(GameOverScene);
+            }
+            else
+            {
+                Debug.LogError("Please set the 'GameOverScene' in the PlayerHealth script.");
+            }
         }
     }
 

@@ -7,14 +7,18 @@ using TMPro;
 
 public class DecisionMangar : MonoBehaviour
 {
-     
+    [Header("Text Manager")]
+    public bool LastScript = false;
+    public GameObject NextSceneButton;
+    [Header("Varibales")]
+     #region Fields
     public TextMeshProUGUI ChoiceMeter;
 
     private float choiceVar = 0f;
     private string choiceDisplay;
 
     public TextMeshProUGUI OverWriteText;
-
+    #region  Choices
       [Header("Choices")]
     public string GreatEnding = "";
     public float GreatPoints = 1.0f;
@@ -22,22 +26,25 @@ public class DecisionMangar : MonoBehaviour
     public float GoodPoints = .5f;
     public string BadEnding = "";
     public float Badpoints = -1.0f;
+    #endregion
 
     public GameObject Buttonrow;
-
+    #region Health
     [Header("Health Points")]
     public int IncreaseHealth = 1;
     public int Decreasehealth =-1;
     public int NaturalHealth = 0; 
+    #endregion
 
      private PlayerHealth playerHealthScript; // Reference to the PlayerHealth script
      private DialogManager dialogManager;
 
     
-   
+    #endregion 
     
     private void Start()
     {
+
       // Load choiceVar from PlayerPrefs if it exists, otherwise, initialize it to 0.
         if (PlayerPrefs.HasKey("ChoiceVar"))
         {
@@ -47,6 +54,12 @@ public class DecisionMangar : MonoBehaviour
         {
             choiceVar = 0.0f;
         }
+
+        if(LastScript== false)
+        {
+          NextSceneButton.SetActive(false);
+        }
+
         choiceDisplay = choiceVar.ToString();
         ChoiceMeter.text = choiceDisplay;
 
@@ -62,9 +75,7 @@ public class DecisionMangar : MonoBehaviour
         // Check for the Escape key press
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Reset PlayerPrefs
-            PlayerPrefs.DeleteKey("ChoiceVar");
-            PlayerPrefs.Save();
+            ResetPlayerPrefs();
 
             // Reset the choiceVar and update the display
             choiceVar = 0.0f;
@@ -94,7 +105,12 @@ public class DecisionMangar : MonoBehaviour
 
     dialogManager.setGreat();
 
-     Buttonrow.SetActive(false);
+     if(LastScript == true)
+      {
+        NextSceneButton.SetActive(true);
+      }  
+       
+      Buttonrow.SetActive(false);
 
      
 
@@ -115,6 +131,10 @@ public class DecisionMangar : MonoBehaviour
 
     playerHealthScript.AdjustPlayerHealth(NaturalHealth);
     dialogManager.setGood();
+    if(LastScript == true)
+      {
+        NextSceneButton.SetActive(true);
+      } 
 
     Buttonrow.SetActive(false);
    }
@@ -133,8 +153,21 @@ public class DecisionMangar : MonoBehaviour
 
     playerHealthScript.AdjustPlayerHealth(Decreasehealth);
     dialogManager.setBad();
+    if(LastScript == true)
+      {
+        NextSceneButton.SetActive(true);
+      } 
 
     Buttonrow.SetActive(false);
 
    }
+
+
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteKey("ChoiceVar");
+        PlayerPrefs.Save();
+
+        choiceVar = 0.0f;
+    }
 }
