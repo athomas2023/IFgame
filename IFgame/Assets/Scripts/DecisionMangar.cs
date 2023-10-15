@@ -31,6 +31,7 @@ public class DecisionMangar : MonoBehaviour
     public int NaturalHealth = 0; 
 
      private PlayerHealth playerHealthScript; // Reference to the PlayerHealth script
+     private DialogManager dialogManager;
 
     
    
@@ -51,6 +52,7 @@ public class DecisionMangar : MonoBehaviour
 
         // Find the PlayerHealth script globally
         playerHealthScript = FindObjectOfType<PlayerHealth>();
+        dialogManager = FindObjectOfType<DialogManager>();
 
     }
 
@@ -90,6 +92,8 @@ public class DecisionMangar : MonoBehaviour
     PlayerPrefs.Save();
     playerHealthScript.AdjustPlayerHealth(IncreaseHealth);
 
+    dialogManager.setGreat();
+
      Buttonrow.SetActive(false);
 
      
@@ -110,6 +114,7 @@ public class DecisionMangar : MonoBehaviour
     PlayerPrefs.Save();
 
     playerHealthScript.AdjustPlayerHealth(NaturalHealth);
+    dialogManager.setGood();
 
     Buttonrow.SetActive(false);
    }
@@ -127,6 +132,7 @@ public class DecisionMangar : MonoBehaviour
     PlayerPrefs.Save();
 
     playerHealthScript.AdjustPlayerHealth(Decreasehealth);
+    dialogManager.setBad();
 
     Buttonrow.SetActive(false);
 

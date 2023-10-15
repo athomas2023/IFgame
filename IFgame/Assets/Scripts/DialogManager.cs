@@ -15,7 +15,11 @@ public class DialogManager : MonoBehaviour
     public GameObject ButtonManager;
 
     [Header("Next Section")]
-    public GameObject TextManager;
+    private GameObject TextManager;
+
+    public GameObject GreatPath;
+    public GameObject GoodPath;
+    public GameObject BadPath;
 
     private bool InDialog;
     #endregion
@@ -84,6 +88,22 @@ public class DialogManager : MonoBehaviour
                 targetOverwriteText.text = textEntries[currentEntryIndex];
             }
         }
+    }
+
+
+    public void setGreat()
+    {
+        TextManager = GreatPath;
+    }
+
+    public void setGood()
+    {
+        TextManager = GoodPath;
+    }
+
+    public void setBad()
+    {
+        TextManager= BadPath;
     }
 }
 
