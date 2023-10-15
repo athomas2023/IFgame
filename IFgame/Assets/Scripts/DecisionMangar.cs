@@ -17,11 +17,11 @@ public class DecisionMangar : MonoBehaviour
 
       [Header("Choices")]
     public string GreatEnding = "";
-    public float GreatPoints = 1f;
+    public float GreatPoints = 1.0f;
     public string GoodEnding = "";
     public float GoodPoints = .5f;
     public string BadEnding = "";
-    public float Badpoints = -1f;
+    public float Badpoints = -1.0f;
 
     
    
