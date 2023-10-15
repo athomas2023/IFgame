@@ -1561,10 +1561,6 @@ PrefabInstance:
       propertyPath: GreatPath
       value: 
       objectReference: {fileID: 1378948420}
-    - target: {fileID: 2029290952259053547, guid: 5a46854eeaa6a0f4c9ca2e4efaf3a1b9, type: 3}
-      propertyPath: TextManager
-      value: 
-      objectReference: {fileID: 1378948420}
     - target: {fileID: 4524442069579335132, guid: 5a46854eeaa6a0f4c9ca2e4efaf3a1b9, type: 3}
       propertyPath: m_Name
       value: TextManager

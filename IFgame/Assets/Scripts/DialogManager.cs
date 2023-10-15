@@ -7,7 +7,8 @@ public class DialogManager : MonoBehaviour
     #region Fields
     public TextMeshProUGUI targetOverwriteText;
     public string[] textEntries;
-    public int maxEntries = 5; // Change this to your desired maximum number of entries
+    public Sprite[] imageEntries; // Array to hold images corresponding to text entries
+    public int maxEntries = 5;
 
     private int currentEntryIndex = 0;
 
@@ -20,6 +21,8 @@ public class DialogManager : MonoBehaviour
     public GameObject GreatPath;
     public GameObject GoodPath;
     public GameObject BadPath;
+
+    public Image imageDisplay; // Reference to the Image component
 
     private bool InDialog;
     #endregion
@@ -60,7 +63,6 @@ public class DialogManager : MonoBehaviour
                     Debug.Log("No more entries");
                     ButtonManager.SetActive(true);
                     InDialog = false;
-
                 }
             }
             else
@@ -86,10 +88,15 @@ public class DialogManager : MonoBehaviour
             if (targetOverwriteText != null)
             {
                 targetOverwriteText.text = textEntries[currentEntryIndex];
+
+                // Display the associated image
+                if (imageDisplay != null && currentEntryIndex < imageEntries.Length)
+                {
+                    imageDisplay.sprite = imageEntries[currentEntryIndex];
+                }
             }
         }
     }
-
 
     public void setGreat()
     {
@@ -103,8 +110,6 @@ public class DialogManager : MonoBehaviour
 
     public void setBad()
     {
-        TextManager= BadPath;
+        TextManager = BadPath;
     }
 }
-
-
