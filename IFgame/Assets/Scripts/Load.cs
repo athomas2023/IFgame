@@ -8,6 +8,15 @@ public class Load : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void LoadAct2()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+        public void LoadAct3()
+    {
+        SceneManager.LoadScene(3);
+    }
 
     public void QuitGame()
     {
