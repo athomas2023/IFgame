@@ -3585,6 +3585,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 292159188898796064, guid: d9f3f923b859cd740b1893740214dc98, type: 3}
+      propertyPath: StartHealthPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 292159188898796064, guid: d9f3f923b859cd740b1893740214dc98, type: 3}
       propertyPath: displayHealthObject
       value: 
       objectReference: {fileID: 1114000710}
