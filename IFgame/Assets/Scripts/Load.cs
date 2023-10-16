@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Load : MonoBehaviour
 {
+   
+
+
+
+
     public void LoadGame()
     {
         SceneManager.LoadScene(1);
@@ -26,11 +31,14 @@ public class Load : MonoBehaviour
 
          public void Gameover()
     {
+        
         SceneManager.LoadScene(3);
     }
 
     public void QuitGame()
     {
+
+        
         Application.Quit();
     }
 }
