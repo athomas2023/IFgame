@@ -1483,7 +1483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1162488655896324645, guid: 5a46854eeaa6a0f4c9ca2e4efaf3a1b9, type: 3}
       propertyPath: Decreasehealth
-      value: -10
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1236124895691768400, guid: 5a46854eeaa6a0f4c9ca2e4efaf3a1b9, type: 3}
       propertyPath: m_Pivot.x

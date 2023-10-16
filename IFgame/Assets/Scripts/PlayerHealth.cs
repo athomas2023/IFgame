@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private int healthPoints = 100; // Initial health points
-    public int StartHealthPoints;
+    private int healthPoints; // Initial health points
+    public int StartHealthPoints =100;
     public GameObject displayHealthObject; // Reference to the TextMeshPro object
     
     private DecisionMangar decisionManager;
@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Health Adjusted: " + healthPoints);
         // Load player's health from PlayerPrefs if it exists, or set to the initial value
         if (PlayerPrefs.HasKey("PlayerHealth"))
         {
@@ -52,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
 
         
                 // Load the GameOverScene
+              ResetPlayerPrefs();
                SceneManager.LoadScene("Scene4");
             
         }
@@ -88,10 +90,16 @@ public class PlayerHealth : MonoBehaviour
         // Reset the PlayerPrefs for health and save it
         PlayerPrefs.DeleteKey("PlayerHealth");
         PlayerPrefs.Save();
+
+        healthPoints = 100;
         // Set health back to the initial value
         
         // Update the health display after resetting
         UpdateHealthDisplay();
+
+
+         PlayerPrefs.SetInt("PlayerHealth", healthPoints);
+        PlayerPrefs.Save();
     }
 }
 
