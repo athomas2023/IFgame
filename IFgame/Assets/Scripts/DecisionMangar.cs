@@ -76,6 +76,7 @@ public class DecisionMangar : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ResetPlayerPrefs();
+            playerHealthScript.ResetPlayerPrefs();
 
             // Reset the choiceVar and update the display
             choiceVar = 0.0f;
