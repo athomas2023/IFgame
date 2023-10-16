@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private int healthPoints = 100; // Initial health points
+    public int healthPoints = 100; // Initial health points
     public GameObject displayHealthObject; // Reference to the TextMeshPro object
     
     private DecisionMangar decisionManager;
