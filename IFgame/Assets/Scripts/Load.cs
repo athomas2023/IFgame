@@ -15,6 +15,17 @@ public class Load : MonoBehaviour
 
         public void LoadAct3()
     {
+       // SceneManager.LoadScene(4);
+    }
+
+
+         public void Mainmenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+         public void Gameover()
+    {
         SceneManager.LoadScene(3);
     }
 

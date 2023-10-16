@@ -6,8 +6,9 @@ public class PlayerHealth : MonoBehaviour
 {
     private int healthPoints = 100; // Initial health points
     public GameObject displayHealthObject; // Reference to the TextMeshPro object
-    public string GameOverScene ;
+    
     private DecisionMangar decisionManager;
+    private Load load;
     private int HealthPoints
     {
         get { return healthPoints; }
@@ -30,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
 
          // Find the DecisionManager script globally
         decisionManager = FindObjectOfType<DecisionMangar>();
+        load = FindObjectOfType<Load>();
+
     }
 
     private void Update()
@@ -46,16 +49,10 @@ public class PlayerHealth : MonoBehaviour
                 decisionManager.ResetPlayerPrefs();
             }
 
-            // Check if the GameOverScene is set
-            if (!string.IsNullOrEmpty(GameOverScene))
-            {
+        
                 // Load the GameOverScene
-                SceneManager.LoadScene(GameOverScene);
-            }
-            else
-            {
-                Debug.LogError("Please set the 'GameOverScene' in the PlayerHealth script.");
-            }
+               load.Gameover();
+            
         }
     }
 
