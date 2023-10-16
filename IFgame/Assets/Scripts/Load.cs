@@ -4,18 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Load : MonoBehaviour
 {
-    private DecisionMangar decisionManager;
-    private PlayerHealth playerHealthScript; // Reference to the PlayerHealth script
-
- private void Start()
-    {
-       playerHealthScript = FindObjectOfType<PlayerHealth>();
-
-        
-        decisionManager = FindObjectOfType<DecisionMangar>();
-       
-
-    }
+   
 
 
 
@@ -42,8 +31,7 @@ public class Load : MonoBehaviour
 
          public void Gameover()
     {
-        decisionManager.ResetPlayerPrefs();
-        playerHealthScript.ResetPlayerPrefs();
+        
         SceneManager.LoadScene(3);
     }
 
